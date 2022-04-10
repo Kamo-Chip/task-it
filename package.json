@@ -1,0 +1,29 @@
+{
+  "name": "task-it",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kamo-Chip/task-it.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kamo-Chip/task-it/issues"
+  },
+  "homepage": "https://github.com/Kamo-Chip/task-it#readme",
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.1"
+  },
+  "dependencies": {
+    "date-fns": "^2.28.0"
+  }
+}
