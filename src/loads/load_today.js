@@ -1,18 +1,14 @@
 import { List } from "../todo_list";
+import { setupCenter } from "./setup_center";
 
 let list = new List();
 
 export function loadToday(){
     const container = document.createElement("div");
-
+    
     const todayTasks = list.getTodaysTasks();
-
-    todayTasks.forEach(element => {
-        const task = document.createElement("div");
-        task.textContent = element.getTitle();
-
-        container.append(task);
-    });
+    
+    setupCenter(todayTasks, container);
 
     return container;
 }

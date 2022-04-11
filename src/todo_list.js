@@ -1,7 +1,11 @@
 import { ToDo } from "./todo";
 export class List{
     constructor(){
-        this.listOfTodos = [new ToDo("study", new Date("10 April 2022"), "school", 1)];
+        this.listOfTodos = [new ToDo("Study physics", new Date("11 April 2022"), "school", 1),
+         new ToDo("Pack lunch", new Date("12 April 2022"), "health", 2),
+          new ToDo("Send Steve the plans", new Date("14 April 2022"), "work", 3),
+           new ToDo("Call mom", new Date("11 April 2022"), "family", 3),
+        new ToDo("Mow lawn", new Date("25 April 2022"), "house", 2)];
         
     }
 

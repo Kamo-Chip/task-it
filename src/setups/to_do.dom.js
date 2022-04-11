@@ -18,13 +18,6 @@ export function setupTodoDom(){
     return container;
 }
 
-export function setupCenter(){
-    const center = document.createElement("div");
-    center.setAttribute("id", "center");
-    center.append(loadToday());
-    return center;
-}
-
 function setupButtons(){
     
     const container = document.createElement("div");
@@ -34,12 +27,6 @@ function setupButtons(){
     const todayIcon = new Image()
     todayIcon.src = Today;
     const title1 = document.createElement("button");
-    title1.addEventListener("click", () =>{
-        // const todayView = document.createElement("div");
-        // todayView.textContent = "Hello";
-        // center.append(todayView);
-        document.body.append(setupCenter());
-    });
     title1.textContent = "Today";
     title1.classList.add("todo-btns");
     today.append(todayIcon, title1);

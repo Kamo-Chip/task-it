@@ -94,3 +94,21 @@ hr{
     justify-content: center;
 }
 
+.task-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 400px;
+    height: 40px;
+}
+
+.task-container p{
+    margin: 10px;
+}
+
+.priority{
+    height: 1rem;
+    width: 1rem;
+    border-radius: 10px;
+}
+

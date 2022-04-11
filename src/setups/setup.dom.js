@@ -2,6 +2,9 @@
 import Rocket from "/src/assets/logo.svg";
 import { setupTodoDom } from "./to_do.dom";
 import { setupFlashcardDom } from "./flashcard.dom";
+import { loadToday } from "../loads/load_today";
+import { loadWeek } from "../loads/load_week";
+import { loadInbox } from "../loads/load_inbox";
 
 export function setupDom(){
     const features = document.createElement("div");
@@ -49,5 +52,21 @@ export function setupDom(){
 
     siderbar1.append(brand, btnContainer);
     
-    document.body.append(siderbar1, features);
+    const center = loadInbox();
+    
+    window.addEventListener("click", (e)=>{
+        if(e.target.textContent === "Today"){
+            center.innerHTML = null;
+            center.append(loadToday());
+        }else if(e.target.textContent === "Week"){
+            center.innerHTML = null;
+            center.append(loadWeek());
+        }else if(e.target.textContent === "Inbox"){
+            center.innerHTML = null;
+            center.append(loadInbox());
+        }
+    });
+
+    center.setAttribute("id", "center")
+    document.body.append(siderbar1, center, features);
 }

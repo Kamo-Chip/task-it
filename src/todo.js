@@ -15,10 +15,22 @@ export class ToDo{
     }
 
     getDate(){
+        //Add code to specify day e.g today or tomorrow
         return this.date;
+    }
+
+    getDay(){
+        let day =  this.date.getDate();
+        let month = this.date.toString().split(" ")[1];
+
+        return `${day}, ${month}`;
     }
 
     getTag(){
         return this.tag;
+    }
+
+    getPriority(){
+        return this.priority
     }
 }
