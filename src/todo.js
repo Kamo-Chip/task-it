@@ -1,11 +1,16 @@
+import { isAfter } from "date-fns";
+
 export class ToDo{
-    constructor(title, date, tag, priority, completed=false){
+    constructor(title, date, tag, priority, completed=false, overdue=false){
         this.title = title;
         this.date = date;
         this.tag = tag;
         this.priority = priority;
     }
 
+    getCompleted(){
+        return this.completed;
+    }
     complete(){
         this.completed = true;
     }
@@ -15,7 +20,7 @@ export class ToDo{
     }
 
     getDate(){
-        //Add code to specify day e.g today or tomorrow
+    
         return this.date;
     }
 
@@ -23,7 +28,20 @@ export class ToDo{
         let day =  this.date.getDate();
         let month = this.date.toString().split(" ")[1];
 
-        return `${day}, ${month}`;
+        return `${day} ${month}`;
+    }
+
+    setOverdue(){
+        this.overdue = true;
+    }
+
+    isOverdue(){
+        let today = new Date();
+
+        if(isAfter(today, this.date) && (today.getDate() > this.date.getDate())){
+            return true;
+        }
+        return false;
     }
 
     getTag(){

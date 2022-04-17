@@ -3,9 +3,11 @@ body{
     min-width: 100vw;
     display: flex;
     flex-direction: row;
-    overflow: hidden;
+    overflow-x: hidden;
     background-color: #fff;
     color: #000;
+    font-size: 1.5rem;
+    font-family: "monospace";
 }
 
 #main-sidebar{
@@ -17,7 +19,7 @@ body{
 #brand{
     display: flex;
     flex-direction: row;
-    font-size: 2rem;
+    font-size: 3rem;
     width: fit-content;
     margin-top: 5px;
 }
@@ -27,8 +29,7 @@ body{
 }
 
 #logo{
-    transform: rotate(-20deg);
-
+    transform: scale(1.5) rotate(-20deg);
 }
 #btn-container{
     width: 15vw;
@@ -57,8 +58,13 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: 60px;
-    width: 120px;
+    height: 100px;
+    width: 18vw;
+}
+
+.icons{
+    transform: scale(1.5);
+    margin-right: 10px;
 }
 
 .todo-options p{
@@ -67,9 +73,10 @@ body{
     font-weight: bold;
 }
 
-.todo-btns{
-    width: 100px;
-    height: 30px;
+button{
+    width: 200px;
+    height: 60px;
+    font-size: 2rem;
 }
 
 hr{
@@ -80,18 +87,21 @@ hr{
     border-style: none;
 }
 
-#projects{
+#projects-heading{
     display: flex;
     flex-direction: row;
 }
 
 #center{
     width: 60vw;
-    height: 50vh;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    margin: 100px 0 0 15vw;
+    position: absolute;
 }
 
 .task-container{
@@ -99,16 +109,95 @@ hr{
     flex-direction: row;
     align-items: center;
     width: 400px;
-    height: 40px;
+    height: 50px;
+    font-size: 1.5rem;
 }
-
 .task-container p{
-    margin: 10px;
+    width: 200px;
+    padding: 10px;
 }
 
 .priority{
     height: 1rem;
     width: 1rem;
     border-radius: 10px;
+    margin-right: 10px;
+    margin-left: -70px
 }
 
+.header{
+    display: flex;
+    flex-direction: row;
+}
+
+.form{
+    width: 60vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    z-index: 10;
+    padding-bottom: 50vh;
+}
+
+.button-group{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    width: 328px;
+}
+
+.input-task{
+    height: 40px;
+    width: 320px;
+    margin: 15px 0 15px 0;
+    font-size: 1.5rem;
+}
+
+.input-date{
+    height: 40px;
+    width: 320px;
+    margin: 15px 0 15px 0;
+    font-size: 1.3rem;
+}
+
+.form-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    margin-top: 30px;
+}
+
+.form-div p{
+    padding-top: -20px;
+    width: 180px;
+    margin-left: 50px;
+    font-size: 1.3rem;
+    color: red;
+}
+
+.add-btn{
+    margin-right: 12vw;
+}
+
+.display-row{
+    display: flex;
+    flex-direction: row;
+    margin-left: 25px;
+    height: 40px;
+}
+
+.delete-projects{
+    margin-right: 10px;
+}
+
+/* button{
+    height: 100px;
+    width: 200px;
+} */

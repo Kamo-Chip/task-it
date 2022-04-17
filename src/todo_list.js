@@ -1,11 +1,8 @@
 import { ToDo } from "./todo";
+
 export class List{
     constructor(){
-        this.listOfTodos = [new ToDo("Study physics", new Date("11 April 2022"), "school", 1),
-         new ToDo("Pack lunch", new Date("12 April 2022"), "health", 2),
-          new ToDo("Send Steve the plans", new Date("14 April 2022"), "work", 3),
-           new ToDo("Call mom", new Date("11 April 2022"), "family", 3),
-        new ToDo("Mow lawn", new Date("25 April 2022"), "house", 2)];
+        this.listOfTodos = [];
         
     }
 
@@ -15,17 +12,30 @@ export class List{
 
     removeToDo(title){
         let newArr = [];
+        let check = 0; 
 
         for(let i = 0; i < this.listOfTodos.length; i++){
-            if(this.listOfTodos[i].getTitle() !== title){
-                newArr.push(this.listOfTodos[i]);
+            if(this.listOfTodos[i].getTitle() === title && check === 0){
+                check++;
+                continue;
+            }else{
+                newArr.push(this.listOfTodos[i])
             }
         }
-
+    
         this.listOfTodos = newArr;
     }
 
+    setOverdue(){
+        for(let i = 0; i < this.listOfTodos.length; i++){
+            if(this.listOfTodos[i].isOverdue()){
+                this.listOfTodos[i].setOverdue();
+            }
+        }
+    }
+
     getTodaysTasks(){
+        this.setOverdue();
         let todayArr = [];
         let today = new Date();
         let todayString = today.getDate() + today.getMonth() + today.getYear();
@@ -41,6 +51,7 @@ export class List{
     }
 
     getWeeksTasks(){
+        this.setOverdue();
         let today = new Date();
         let dayInWeek = today.getDay();
         let weekArr = [];
@@ -70,6 +81,7 @@ export class List{
     }
 
     getInbox(){
+        this.setOverdue();
         return this.listOfTodos;
     }
 
@@ -81,6 +93,38 @@ export class List{
             }
         }
         return tagArr;
+    }
+
+    removeTasksWithTag(tag){
+        let newArr = [];
+
+        for(let i = 0; i < this.listOfTodos.length; i++){
+            if(this.listOfTodos[i].getTag() !== tag){
+                newArr.push(this.listOfTodos[i]);
+            }
+        }
+        this.listOfTodos = newArr;
+    }
+
+    isPresent(task){
+        let isPresent = false;
+        for(let i = 0; i < this.listOfTodos.length; i++){
+            if(this.listOfTodos[i].getTitle() === task){
+                isPresent = true;
+            }
+        }
+        return isPresent;
+    }
+
+    getProjects(){
+        let projects = [];
+
+        for(let i = 0; i < this.listOfTodos.length; i++){
+            if(projects.indexOf(this.listOfTodos[i].getTag()) < 0){
+                projects.push(this.listOfTodos[i].getTag());
+            }
+        }
+        return projects;
     }
 }
 
